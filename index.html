@@ -42,12 +42,18 @@
         /* =========================================================
         1. BASE STYLING CERIA & HANGAT KHAS IPB MENGAJAR
         ========================================================== */
+        html {
+            overflow-x: hidden;
+            max-width: 100%;
+            scroll-padding-top: 84px; /* Mencegah judul tertutup navbar saat klik menu */
+        }
+
         body {
             background-color: #F8EFE0; /* Solid Warm Cream, bersih tanpa polkadot/bubble ramai */
             color: #1F2937;
             overflow-x: hidden;
             width: 100%;
-            max-width: 100vw;
+            max-width: 100%;
             position: relative;
         }
 
@@ -60,13 +66,15 @@
             box-shadow: 0 10px 30px rgba(100, 13, 20, 0.08);
         }
 
-        /* Efek Hover Ringan & Responsif */
+        /* Efek Hover Hanya untuk Perangkat Pointer/Mouse (Anti-Bug Sticky Hover di HP) */
         .hover-scale {
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+            transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.25s ease;
         }
-        .hover-scale:hover {
-            transform: scale(1.02) translateY(-4px);
-            box-shadow: 0 15px 30px rgba(100, 13, 20, 0.12);
+        @media (hover: hover) and (pointer: fine) {
+            .hover-scale:hover {
+                transform: scale(1.015) translateY(-4px);
+                box-shadow: 0 15px 30px rgba(100, 13, 20, 0.12);
+            }
         }
 
         .sticker-badge {
@@ -98,24 +106,24 @@
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="font-sans antialiased pb-20 selection:bg-sunnyYellow selection:text-blackCherry">
+<body class="font-sans antialiased pb-16 sm:pb-20 selection:bg-sunnyYellow selection:text-blackCherry">
 
     <!-- =========================================================
-    BACKGROUND IKON ALAT BELAJAR MELAYANG (SIMPEL & TIDAK RAMAI)
+    BACKGROUND IKON ALAT BELAJAR MELAYANG (SIMPEL & AMAN DI HP/LAPTOP)
     ========================================================== -->
-    <div class="fixed top-20 left-10 text-5xl text-sunnyYellow opacity-55 anim-float-1 pointer-events-none z-0 hidden md:block" aria-hidden="true"><i class="fa-solid fa-pencil"></i></div>
-    <div class="fixed bottom-40 left-16 text-6xl text-brownRed opacity-25 anim-float-2 pointer-events-none z-0 hidden md:block" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
-    <div class="fixed top-40 right-10 text-5xl text-goldenApricot opacity-45 anim-float-3 pointer-events-none z-0 hidden md:block" aria-hidden="true"><i class="fa-solid fa-star"></i></div>
-    <div class="fixed bottom-20 right-20 text-4xl text-cottonCandy opacity-55 anim-float-1 pointer-events-none z-0 hidden md:block" style="animation-delay: 1s;" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
+    <div class="fixed top-20 left-2 sm:left-6 md:left-10 text-2xl sm:text-4xl md:text-5xl text-sunnyYellow opacity-35 md:opacity-55 anim-float-1 pointer-events-none z-0" aria-hidden="true"><i class="fa-solid fa-pencil"></i></div>
+    <div class="fixed bottom-36 left-3 sm:left-10 md:left-16 text-3xl sm:text-5xl md:text-6xl text-brownRed opacity-15 md:opacity-25 anim-float-2 pointer-events-none z-0" aria-hidden="true"><i class="fa-solid fa-book-open"></i></div>
+    <div class="fixed top-36 right-2 sm:right-6 md:right-10 text-2xl sm:text-4xl md:text-5xl text-goldenApricot opacity-30 md:opacity-45 anim-float-3 pointer-events-none z-0" aria-hidden="true"><i class="fa-solid fa-star"></i></div>
+    <div class="fixed bottom-16 right-3 sm:right-12 md:right-20 text-2xl sm:text-3xl md:text-4xl text-cottonCandy opacity-35 md:opacity-55 anim-float-1 pointer-events-none z-0" style="animation-delay: 1s;" aria-hidden="true"><i class="fa-solid fa-graduation-cap"></i></div>
 
     <!-- =========================================================
-    NAVIGASI ATAS RAPI & MUDAH DIAKSES
+    NAVIGASI ATAS RAPI & MUDAH DIAKSES DI HP MAUPUN LAPTOP
     ========================================================== -->
-    <nav class="sticky top-3 z-40 px-4 pt-2">
-        <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-full px-3 sm:px-4 py-2 flex items-center justify-between gap-2 shadow-md border-2 border-pearlBeige">
+    <nav class="sticky top-2.5 sm:top-3 z-40 px-3 sm:px-4 pt-1.5 sm:pt-2">
+        <div class="max-w-4xl mx-auto bg-white/95 backdrop-blur-md rounded-full px-2.5 sm:px-4 py-1.5 sm:py-2 flex items-center justify-between gap-1.5 sm:gap-2 shadow-md border-2 border-pearlBeige">
             <!-- Logo IPB Mengajar -->
-            <a href="#beranda" class="flex items-center gap-2.5 pl-1 shrink-0">
-                <div class="w-9 h-9 rounded-full bg-white flex items-center justify-center p-1 border-2 border-pearlBeige shadow-sm">
+            <a href="#beranda" class="flex items-center gap-2 pl-0.5 sm:pl-1 shrink-0">
+                <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white flex items-center justify-center p-1 border-2 border-pearlBeige shadow-sm">
                     <img src="https://i.ibb.co.com/chgK8F51/Logo-IPB-Mengajar-20260817-141726-0000.png"
                          alt="Logo IPB Mengajar"
                          onerror="this.onerror=null;this.src='https://placehold.co/80x80/FFFFFF/AD2831?text=IM';"
@@ -126,112 +134,114 @@
                 </span>
             </a>
 
-            <!-- Menu Navigasi -->
-            <div class="flex items-center gap-1 sm:gap-1.5 text-xs sm:text-sm font-extrabold text-gray-700 overflow-x-auto no-scrollbar py-0.5">
-                <a href="#tentang" class="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 hover:text-blackCherry transition whitespace-nowrap">Kenalan Yuk</a>
-                <a href="#nawaruna" class="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 hover:text-blackCherry transition whitespace-nowrap">Nawaruna</a>
-                <a href="#posisi" class="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 hover:text-blackCherry transition whitespace-nowrap">Posisi</a>
-                <a href="#timeline" class="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 hover:text-blackCherry transition whitespace-nowrap">Timeline</a>
-                <a href="#bph" class="px-2.5 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 hover:text-blackCherry transition whitespace-nowrap">BPH</a>
-                <a href="#berkas-daftar" class="bg-brownRed hover:bg-blackCherry text-white px-3.5 sm:px-4 py-1.5 rounded-full transition whitespace-nowrap shadow-sm">
-                    Link Daftar ✨
-                </a>
+            <!-- Menu Navigasi Tengah (Scrollable di HP, Rapi di Laptop) -->
+            <div class="flex items-center gap-0.5 sm:gap-1.5 text-xs sm:text-sm font-extrabold text-gray-700 overflow-x-auto no-scrollbar py-0.5 min-w-0 flex-1 sm:flex-initial justify-start sm:justify-end">
+                <a href="#tentang" class="px-2 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 active:bg-pearlBeige hover:text-blackCherry transition whitespace-nowrap">Kenalan Yuk</a>
+                <a href="#nawaruna" class="px-2 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 active:bg-pearlBeige hover:text-blackCherry transition whitespace-nowrap">Nawaruna</a>
+                <a href="#posisi" class="px-2 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 active:bg-pearlBeige hover:text-blackCherry transition whitespace-nowrap">Posisi</a>
+                <a href="#timeline" class="px-2 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 active:bg-pearlBeige hover:text-blackCherry transition whitespace-nowrap">Timeline</a>
+                <a href="#bph" class="px-2 sm:px-3 py-1.5 rounded-full hover:bg-pearlBeige/60 active:bg-pearlBeige hover:text-blackCherry transition whitespace-nowrap">BPH</a>
             </div>
+
+            <!-- Tombol CTA Daftar (Selalu Terlihat di HP & Laptop) -->
+            <a href="#berkas-daftar" class="bg-brownRed hover:bg-blackCherry active:scale-95 text-white text-xs sm:text-sm font-extrabold px-3 sm:px-4 py-1.5 rounded-full transition whitespace-nowrap shadow-sm shrink-0">
+                Daftar ✨
+            </a>
         </div>
     </nav>
 
     <!-- =========================================================
     KONTAINER UTAMA (TATA LETAK TETAP KONSISTEN & TERSTRUKTUR)
     ========================================================== -->
-    <main class="max-w-4xl mx-auto px-4 md:px-6 pt-8 md:pt-12 relative z-10 space-y-12">
+    <main class="max-w-4xl mx-auto px-3.5 sm:px-5 md:px-6 pt-6 sm:pt-8 md:pt-12 relative z-10 space-y-10 sm:space-y-12">
 
         <!-- =========================================================
         1. HERO SECTION
         ========================================================== -->
-        <section id="beranda" class="text-center space-y-6">
+        <section id="beranda" class="text-center space-y-5 sm:space-y-6">
             <!-- Bingkai Logo Resmi IPB Mengajar -->
             <div class="relative inline-block">
-                <div class="w-32 h-32 md:w-36 md:h-36 mx-auto rounded-full bg-white p-3.5 flex items-center justify-center shadow-lg border-4 border-goldenApricot">
+                <div class="w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 mx-auto rounded-full bg-white p-3 sm:p-3.5 flex items-center justify-center shadow-lg border-4 border-goldenApricot">
                     <img src="https://i.ibb.co.com/chgK8F51/Logo-IPB-Mengajar-20260817-141726-0000.png"
                          alt="Logo Resmi IPB Mengajar"
                          onerror="this.onerror=null;this.src='https://placehold.co/200x200/FFFFFF/AD2831?text=IPB+Mengajar';"
                          class="w-full h-full object-contain">
                 </div>
                 <!-- Stiker Pensil Ceria di Pinggir Logo -->
-                <div class="absolute -top-2 -left-4 w-11 h-11 rounded-full bg-sunnyYellow border-2 border-white sticker-badge flex items-center justify-center">
-                    <svg class="w-6 h-6" viewBox="0 0 64 64" fill="none">
+                <div class="absolute -top-1.5 -left-3 sm:-top-2 sm:-left-4 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-sunnyYellow border-2 border-white sticker-badge flex items-center justify-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6" viewBox="0 0 64 64" fill="none">
                         <path d="M44 10L54 20L24 50L11 53L14 40L44 10Z" fill="#FFFFFF" stroke="#640D14" stroke-width="3.5" stroke-linejoin="round"/>
                         <path d="M40 14L50 24" stroke="#FD9BB7" stroke-width="5"/>
                         <path d="M11 53L18 51L13 46L11 53Z" fill="#640D14"/>
                     </svg>
                 </div>
-                <span class="absolute -bottom-2 right-0 bg-sunnyYellow text-yellow-950 font-black text-xs px-3 py-1 rounded-full border-2 border-yellow-600 shadow-sm">
+                <span class="absolute -bottom-2 right-0 bg-sunnyYellow text-yellow-950 font-black text-[11px] sm:text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border-2 border-yellow-600 shadow-sm">
                     2026 / 2027
                 </span>
             </div>
 
             <!-- Badge Pengumuman -->
             <div>
-                <div class="inline-block bg-white px-4 md:px-6 py-2 rounded-full text-brownRed font-black tracking-wider shadow-sm border-2 border-pearlBeige uppercase text-xs sm:text-sm md:text-base">
+                <div class="inline-block bg-white px-3.5 sm:px-5 md:px-6 py-1.5 sm:py-2 rounded-full text-brownRed font-black tracking-wide sm:tracking-wider shadow-sm border-2 border-pearlBeige uppercase text-[11px] sm:text-sm md:text-base">
                     ✨ Open Recruitment Pimpinan IPB Mengajar ✨
                 </div>
             </div>
 
             <!-- Judul Utama -->
             <div class="space-y-4">
-                <h1 class="text-3xl sm:text-5xl md:text-6xl font-black text-blackCherry leading-tight">
+                <h1 class="text-[1.75rem] leading-[1.2] sm:text-5xl md:text-6xl font-black text-blackCherry">
                     Yuk, Jadi Bagian dari Cerita<br>
                     <span class="text-sunnyYellow" style="text-shadow: 2px 2px 0 #640D14;">Kabinet Nawaruna! 🎒💛</span>
                 </h1>
 
                 <!-- Kotak Sambutan -->
-                <div class="relative max-w-3xl mx-auto pt-3">
+                <div class="relative max-w-3xl mx-auto pt-4">
                     <!-- Stiker Alat Mengajar: Pensil & Penggaris -->
-                    <div class="absolute -top-2 left-3 sm:left-6 z-20 w-12 h-12 rounded-full bg-sunnyYellow border-3 border-white sticker-badge flex items-center justify-center" title="Alat Mengajar">
-                        <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none">
+                    <div class="absolute -top-1 left-3 sm:left-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-sunnyYellow border-2 border-white sticker-badge flex items-center justify-center" title="Alat Mengajar">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 64 64" fill="none">
                             <path d="M44 10L54 20L24 50L11 53L14 40L44 10Z" fill="#FFFBEB" stroke="#640D14" stroke-width="3" stroke-linejoin="round"/>
                             <path d="M40 14L50 24" stroke="#AD2831" stroke-width="5"/>
                             <path d="M11 53L18 51L13 46L11 53Z" fill="#640D14"/>
                         </svg>
                     </div>
-                    <div class="absolute -top-2 right-3 sm:right-6 z-20 w-12 h-12 rounded-full bg-pink-100 border-3 border-white sticker-badge flex items-center justify-center" title="Buku & Penggaris">
-                        <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none">
+                    <div class="absolute -top-1 right-3 sm:right-6 z-20 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-pink-100 border-2 border-white sticker-badge flex items-center justify-center" title="Buku & Penggaris">
+                        <svg class="w-6 h-6 sm:w-7 sm:h-7" viewBox="0 0 64 64" fill="none">
                             <path d="M12 50V14L48 50H12Z" fill="#FACC15" stroke="#640D14" stroke-width="3" stroke-linejoin="round"/>
                             <path d="M20 42V29L33 42H20Z" fill="#FFFFFF" stroke="#AD2831" stroke-width="2"/>
                         </svg>
                     </div>
 
-                    <div class="glass-card hover-scale rounded-3xl p-5 md:p-7 text-base md:text-lg font-semibold text-gray-800 leading-relaxed border-t-8 border-t-brownRed space-y-4">
+                    <div class="glass-card hover-scale rounded-3xl pt-7 px-4 pb-5 sm:p-6 md:p-7 text-sm sm:text-base md:text-lg font-semibold text-gray-800 leading-relaxed border-t-8 border-t-brownRed space-y-4">
                         <p>
-                            Halo teman-teman <span class="bg-pearlBeige text-blackCherry px-2.5 py-0.5 rounded-lg font-black border border-goldenApricot/50">Angkatan 62 & 63</span>! Lagi cari tempat berorganisasi yang hangat, suportif, dan penuh tawa bareng adik-adik binaan? Yuk, ambil peranmu sebagai Pimpinan di <strong class="text-brownRed">UKM IPB Mengajar 2026/2027</strong>!
+                            Halo teman-teman <span class="bg-pearlBeige text-blackCherry px-2 py-0.5 rounded-lg font-black border border-goldenApricot/50">Angkatan 62 & 63</span>! Lagi cari tempat berorganisasi yang hangat, suportif, dan penuh tawa bareng adik-adik binaan? Yuk, ambil peranmu sebagai Pimpinan di <strong class="text-brownRed">UKM IPB Mengajar 2026/2027</strong>!
                         </p>
                         <!-- Mini Badge Ceria Alat & Semangat Mengajar -->
-                        <div class="flex flex-wrap items-center justify-center gap-2 pt-1 text-xs sm:text-sm font-extrabold">
-                            <span class="bg-yellow-100 text-yellow-900 px-3.5 py-1.5 rounded-full border border-yellow-300 shadow-xs">✏️ Pensil & Cerita</span>
-                            <span class="bg-pink-100 text-blackCherry px-3.5 py-1.5 rounded-full border border-pink-300 shadow-xs">📐 Kreasi Belajar</span>
-                            <span class="bg-amber-100 text-brownRed px-3.5 py-1.5 rounded-full border border-amber-300 shadow-xs">📚 Buku & Harapan</span>
-                            <span class="bg-red-100 text-brownRed px-3.5 py-1.5 rounded-full border border-red-300 shadow-xs">💛 Tumbuh Bersama</span>
+                        <div class="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-1 text-[11px] sm:text-sm font-extrabold">
+                            <span class="bg-yellow-100 text-yellow-900 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-yellow-300 shadow-xs">✏️ Pensil & Cerita</span>
+                            <span class="bg-pink-100 text-blackCherry px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-pink-300 shadow-xs">📐 Kreasi Belajar</span>
+                            <span class="bg-amber-100 text-brownRed px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-amber-300 shadow-xs">📚 Buku & Harapan</span>
+                            <span class="bg-red-100 text-brownRed px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full border border-red-300 shadow-xs">💛 Tumbuh Bersama</span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Highlight Tanggal Pendaftaran -->
                 <div class="pt-1">
-                    <a href="#timeline" class="inline-flex flex-wrap items-center justify-center gap-2 bg-red-100 hover:bg-red-200/80 text-red-900 font-black text-xs sm:text-sm md:text-base px-5 py-3 rounded-2xl border-2 border-red-300 shadow-sm transition">
-                        <span class="bg-brownRed text-white text-xs px-2.5 py-0.5 rounded-md uppercase">Penting</span>
-                        <span>Pendaftaran Dibuka: <span class="text-brownRed underline decoration-2">22 – 26 November 2026</span></span>
+                    <a href="#timeline" class="inline-flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 bg-red-100 hover:bg-red-200/80 active:scale-98 text-red-900 font-black text-xs sm:text-sm md:text-base px-4 sm:px-5 py-2.5 sm:py-3 rounded-2xl border-2 border-red-300 shadow-sm transition">
+                        <span class="bg-brownRed text-white text-[10px] sm:text-xs px-2 sm:px-2.5 py-0.5 rounded-md uppercase">Penting</span>
+                        <span>Pendaftaran: <span class="text-brownRed underline decoration-2">22 – 26 Nov 2026</span></span>
                         <i class="fa-solid fa-arrow-down text-brownRed"></i>
                     </a>
                 </div>
             </div>
 
             <!-- Tombol Aksi Utama -->
-            <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 max-w-xl mx-auto pt-1">
-                <a href="#berkas-daftar" class="w-full sm:w-auto flex-1 bg-brownRed hover:bg-blackCherry text-white font-black text-base md:text-lg py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2.5 border-2 border-blackCherry">
-                    <i class="fa-solid fa-folder-open text-sunnyYellow text-xl"></i>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 max-w-xl mx-auto pt-1">
+                <a href="#berkas-daftar" class="w-full sm:w-auto flex-1 bg-brownRed hover:bg-blackCherry active:scale-98 text-white font-black text-sm sm:text-base md:text-lg py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl shadow-lg transition transform sm:hover:-translate-y-1 flex items-center justify-center gap-2.5 border-2 border-blackCherry">
+                    <i class="fa-solid fa-folder-open text-sunnyYellow text-lg sm:text-xl"></i>
                     <span>UNDUH BERKAS & DAFTAR</span>
                 </a>
-                <a href="#posisi" class="w-full sm:w-auto bg-sunnyYellow hover:bg-yellow-300 text-yellow-950 font-black text-base md:text-lg py-4 px-6 rounded-2xl shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2 border-2 border-yellow-600">
+                <a href="#posisi" class="w-full sm:w-auto bg-sunnyYellow hover:bg-yellow-300 active:scale-98 text-yellow-950 font-black text-sm sm:text-base md:text-lg py-3.5 sm:py-4 px-5 sm:px-6 rounded-2xl shadow-lg transition transform sm:hover:-translate-y-1 flex items-center justify-center gap-2 border-2 border-yellow-600">
                     <i class="fa-solid fa-list-check"></i>
                     <span>LIHAT POSISI</span>
                 </a>
@@ -241,9 +251,7 @@
         <!-- =========================================================
         2. KENALAN SAMA UKM IPB MENGAJAR
         ========================================================== -->
-        <section id="tentang" class="glass-card rounded-3xl p-6 md:p-8 hover-scale border-t-8 border-t-goldenApricot relative">
-            <!-- Stiker Tempat Pensil & Spidol di Sudut Kanan Atas Kartu -->
-            <div class="hidden sm:flex absolute -top-5 right-6 w-14 h-14 rounded-full bg-sunnyYellow border-4 border-white sticker-badge items-center justify-center" title="Perlengkapan Mengajar">
+        <section id="tentang" class="glass-card rounded-3xl p-5 sm:p-6 md:p-8 hover-scale border-t-8 border-t-goldenApricot relative">
                 <svg class="w-8 h-8" viewBox="0 0 64 64" fill="none">
                     <path d="M22 28L18 14L24 12L28 28" fill="#FFFFFF" stroke="#640D14" stroke-width="2.5" stroke-linejoin="round"/>
                     <path d="M36 28L41 12L47 14L42 28" fill="#FD9BB7" stroke="#640D14" stroke-width="2.5" stroke-linejoin="round"/>
@@ -298,41 +306,41 @@
         3. GRAND DESIGN: KABINET NAWARUNA
         ========================================================== -->
         <section id="nawaruna">
-            <div class="bg-brownRed rounded-3xl p-6 md:p-10 text-center shadow-xl hover-scale border-4 border-blackCherry relative overflow-hidden">
-                <div class="absolute -right-8 -bottom-8 text-9xl opacity-15 text-sunnyYellow pointer-events-none">
+            <div class="bg-brownRed rounded-3xl p-5 sm:p-6 md:p-10 text-center shadow-xl hover-scale border-4 border-blackCherry relative overflow-hidden">
+                <div class="absolute -right-8 -bottom-8 text-8xl sm:text-9xl opacity-15 text-sunnyYellow pointer-events-none">
                     <i class="fa-solid fa-sun"></i>
                 </div>
 
-                <!-- Ornamen Alat Mengajar Ceria di Sudut Kabinet Nawaruna -->
-                <div class="hidden sm:flex absolute top-5 left-6 w-12 h-12 rounded-full bg-sunnyYellow/95 border-2 border-white sticker-badge items-center justify-center">
+                <!-- Ornamen Alat Mengajar Ceria di Sudut Kabinet Nawaruna (Muncul di layar md+ agar tidak menabrak judul di HP) -->
+                <div class="hidden md:flex absolute top-6 left-6 w-12 h-12 rounded-full bg-sunnyYellow/95 border-2 border-white sticker-badge items-center justify-center">
                     <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none">
                         <path d="M44 10L54 20L24 50L11 53L14 40L44 10Z" fill="#FFFFFF" stroke="#640D14" stroke-width="3" stroke-linejoin="round"/>
                         <path d="M40 14L50 24" stroke="#FD9BB7" stroke-width="5"/>
                         <path d="M11 53L18 51L13 46L11 53Z" fill="#640D14"/>
                     </svg>
                 </div>
-                <div class="hidden sm:flex absolute top-5 right-6 w-12 h-12 rounded-full bg-pearlBeige border-2 border-white sticker-badge items-center justify-center">
+                <div class="hidden md:flex absolute top-6 right-6 w-12 h-12 rounded-full bg-pearlBeige border-2 border-white sticker-badge items-center justify-center">
                     <svg class="w-7 h-7" viewBox="0 0 64 64" fill="none">
                         <path d="M32 18C26 14 16 14 10 17V49C16 46 26 46 32 50C38 46 48 46 54 49V17C48 14 38 14 32 18Z" fill="#FFFFFF" stroke="#AD2831" stroke-width="3" stroke-linejoin="round"/>
                         <line x1="32" y1="18" x2="32" y2="50" stroke="#AD2831" stroke-width="3"/>
                     </svg>
                 </div>
 
-                <div class="relative z-10 space-y-5">
-                    <span class="inline-block bg-sunnyYellow text-yellow-950 font-black text-xs sm:text-sm px-4 py-1 rounded-full uppercase tracking-wider border-2 border-yellow-600 shadow-sm">
+                <div class="relative z-10 space-y-4 sm:space-y-5">
+                    <span class="inline-block bg-sunnyYellow text-yellow-950 font-black text-xs sm:text-sm px-3.5 sm:px-4 py-1 rounded-full uppercase tracking-wider border-2 border-yellow-600 shadow-sm">
                         ✨ Grand Design 2026/2027 ✨
                     </span>
 
-                    <h2 class="text-3xl md:text-5xl font-black text-white uppercase tracking-wide" style="text-shadow: 2px 2px 0 #640D14;">
+                    <h2 class="text-2xl sm:text-4xl md:text-5xl font-black text-white uppercase tracking-wide" style="text-shadow: 2px 2px 0 #640D14;">
                         Kabinet Nawaruna
                     </h2>
 
-                    <p class="inline-block bg-sunnyYellow/20 border-2 border-sunnyYellow/70 text-sunnyYellow font-black text-base md:text-xl px-5 py-1.5 rounded-full tracking-wide shadow-sm">
+                    <p class="inline-block bg-sunnyYellow/20 border-2 border-sunnyYellow/70 text-sunnyYellow font-black text-sm sm:text-base md:text-xl px-4 sm:px-5 py-1.5 rounded-full tracking-wide shadow-sm">
                         “Langkah Kecil Untuk Negeri” ✨
                     </p>
 
-                    <!-- Kotak Deskripsi Putih Kontras Tinggi (Diam tenang agar mudah dibaca) -->
-                    <div class="bg-white block w-full px-5 md:px-8 py-5 rounded-2xl text-sm md:text-base font-bold text-gray-800 shadow-lg border-4 border-pearlBeige text-left max-w-2xl mx-auto">
+                    <!-- Kotak Deskripsi Putih Kontras Tinggi -->
+                    <div class="bg-white block w-full px-4 sm:px-6 md:px-8 py-4 sm:py-5 rounded-2xl text-sm md:text-base font-bold text-gray-800 shadow-lg border-4 border-pearlBeige text-left max-w-2xl mx-auto">
                         <p class="leading-relaxed">
                             Nama <strong class="text-brownRed">Nawaruna</strong> terinspirasi dari makna <strong>cahaya matahari pagi yang hangat dan membawa harapan baru</strong>. Lewat kabinet ini, kita ingin IPB Mengajar menjadi rumah yang selalu cerah, ramah bagi siapa saja, dan mampu menebarkan semangat belajar yang menyala ke lingkungan sekitar.
                         </p>
@@ -340,21 +348,21 @@
 
                     <!-- Tab Interaktif Budaya Kerja Nawaruna -->
                     <div class="max-w-2xl mx-auto space-y-3 pt-1">
-                        <p class="text-xs sm:text-sm font-extrabold text-pearlBeige uppercase tracking-wider">
-                            Klik tombol di bawah untuk intip budaya kerja Nawaruna 👇
+                        <p class="text-[11px] sm:text-sm font-extrabold text-pearlBeige uppercase tracking-wider">
+                            Ketuk tombol di bawah untuk intip budaya kerja Nawaruna 👇
                         </p>
                         <div class="flex flex-wrap justify-center gap-2" id="nawaruna-tabs">
-                            <button type="button" onclick="selectValue('hangat', this)" class="nawaruna-tab active bg-sunnyYellow text-yellow-950 font-black text-xs sm:text-sm px-4 py-2.5 rounded-full border-2 border-yellow-600 shadow transition cursor-pointer">
+                            <button type="button" onclick="selectValue('hangat', this)" class="nawaruna-tab active bg-sunnyYellow text-yellow-950 font-black text-xs sm:text-sm px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full border-2 border-yellow-600 shadow transition cursor-pointer active:scale-95">
                                 ☀️ Hangat & Humble
                             </button>
-                            <button type="button" onclick="selectValue('ceria', this)" class="nawaruna-tab bg-white hover:bg-pearlBeige text-blackCherry font-black text-xs sm:text-sm px-4 py-2.5 rounded-full border-2 border-pearlBeige shadow transition cursor-pointer">
+                            <button type="button" onclick="selectValue('ceria', this)" class="nawaruna-tab bg-white hover:bg-pearlBeige text-blackCherry font-black text-xs sm:text-sm px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full border-2 border-pearlBeige shadow transition cursor-pointer active:scale-95">
                                 🎨 Ceria & Kreatif
                             </button>
-                            <button type="button" onclick="selectValue('berdampak', this)" class="nawaruna-tab bg-white hover:bg-pearlBeige text-blackCherry font-black text-xs sm:text-sm px-4 py-2.5 rounded-full border-2 border-pearlBeige shadow transition cursor-pointer">
+                            <button type="button" onclick="selectValue('berdampak', this)" class="nawaruna-tab bg-white hover:bg-pearlBeige text-blackCherry font-black text-xs sm:text-sm px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-full border-2 border-pearlBeige shadow transition cursor-pointer active:scale-95">
                                 🌱 Bertumbuh & Berdampak
                             </button>
                         </div>
-                        <div id="nawaruna-value-box" class="bg-amber-50 rounded-2xl p-4 sm:p-5 text-center text-sm sm:text-base text-gray-800 font-bold border-2 border-sunnyYellow shadow-md transition-opacity duration-150">
+                        <div id="nawaruna-value-box" class="bg-amber-50 rounded-2xl p-4 sm:p-5 text-center text-xs sm:text-sm md:text-base text-gray-800 font-bold border-2 border-sunnyYellow shadow-md transition-opacity duration-150">
                             <span class="text-brownRed font-black">Hangat & Humble:</span> Di Nawaruna, posisi pimpinan bukan buat merasa paling tinggi, tapi buat merangkul semua teman agar nyaman berpendapat dan saling bantu.
                         </div>
                     </div>
@@ -408,7 +416,7 @@
                             Buat kamu yang senang menggerakkan tim, menyusun ide kegiatan seru, dan menemani teman-teman staf di divisi agar program kerja berjalan lancar serta penuh keceriaan!
                         </p>
                     </div>
-                    <div class="flex items-center justify-between gap-2 bg-amber-50 px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-amber-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 bg-amber-50 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-amber-200">
                         <span><i class="fa-solid fa-graduation-cap text-brownRed mr-1.5"></i> Mahasiswa IPB Angkatan 62</span>
                         <a href="#berkas-daftar" class="text-brownRed hover:underline font-black">Daftar →</a>
                     </div>
@@ -433,7 +441,7 @@
                             Partner dekat Sekretaris Umum 1 dalam merapikan alur surat-menyurat, arsip dokumen, dan kebutuhan administrasi supaya seluruh kegiatan IPB Mengajar terorganisir dengan apik.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between gap-2 bg-amber-50 px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-amber-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 bg-amber-50 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-amber-200">
                         <span><i class="fa-solid fa-graduation-cap text-brownRed mr-1.5"></i> Mahasiswa IPB Angkatan 62</span>
                         <a href="#berkas-daftar" class="text-brownRed hover:underline font-black">Daftar →</a>
                     </div>
@@ -458,7 +466,7 @@
                             Kesempatan seru buat teman-teman Angkatan 63 yang mau belajar langsung tata kelola kesekretariatan, pencatatan rapat, dan dokumentasi organisasi bareng kakak-kakak yang suportif!
                         </p>
                     </div>
-                    <div class="flex items-center justify-between gap-2 bg-pink-50 px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-pink-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 bg-pink-50 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-pink-200">
                         <span><i class="fa-solid fa-graduation-cap text-brownRed mr-1.5"></i> Mahasiswa IPB Angkatan 63</span>
                         <a href="#berkas-daftar" class="text-brownRed hover:underline font-black">Daftar →</a>
                     </div>
@@ -483,7 +491,7 @@
                             Teman diskusi dan partner andalan Bendahara Umum 1 untuk mencatat arus kas, mengatur anggaran tiap kegiatan, dan menjaga keuangan organisasi tetap rapi serta transparan.
                         </p>
                     </div>
-                    <div class="flex items-center justify-between gap-2 bg-pink-50 px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-pink-200">
+                    <div class="flex flex-wrap items-center justify-between gap-2 bg-pink-50 px-3.5 sm:px-4 py-2.5 rounded-xl text-xs font-extrabold text-gray-800 border border-pink-200">
                         <span><i class="fa-solid fa-graduation-cap text-blackCherry mr-1.5"></i> Mahasiswa IPB Angkatan 63</span>
                         <a href="#berkas-daftar" class="text-brownRed hover:underline font-black">Daftar →</a>
                     </div>
@@ -494,19 +502,19 @@
         <!-- =========================================================
         5. TIMELINE SELEKSI PIMPINAN & NOTES PENTING
         ========================================================== -->
-        <section id="timeline" class="glass-card rounded-3xl p-6 md:p-10 border-t-8 border-t-brownRed space-y-8">
+        <section id="timeline" class="glass-card rounded-3xl p-5 sm:p-6 md:p-10 border-t-8 border-t-brownRed space-y-6 sm:space-y-8">
             <div class="text-center">
-                <h2 class="text-2xl md:text-4xl font-black text-gray-900 uppercase">Timeline Seleksi Pimpinan 📅</h2>
-                <p class="text-base md:text-lg font-bold text-brownRed mt-1">Catat & Tandai Kalendermu Agar Tidak Terlewat!</p>
+                <h2 class="text-xl sm:text-2xl md:text-4xl font-black text-gray-900 uppercase">Timeline Seleksi Pimpinan 📅</h2>
+                <p class="text-sm sm:text-base md:text-lg font-bold text-brownRed mt-1">Catat & Tandai Kalendermu Agar Tidak Terlewat!</p>
             </div>
 
             <!-- Grid 4 Tahap Timeline -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
                 <!-- Tahap 1 -->
-                <div class="bg-red-50 rounded-2xl p-5 border-2 border-red-400 shadow-sm hover-scale">
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-brownRed text-white font-black text-sm px-3 py-1 rounded-lg">TAHAP 01</span>
-                        <span class="bg-sunnyYellow text-yellow-950 font-black text-xs px-3 py-1 rounded-full border border-yellow-600">
+                <div class="bg-red-50 rounded-2xl p-4 sm:p-5 border-2 border-red-400 shadow-sm hover-scale">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="bg-brownRed text-white font-black text-xs sm:text-sm px-3 py-1 rounded-lg">TAHAP 01</span>
+                        <span class="bg-sunnyYellow text-yellow-950 font-black text-[11px] sm:text-xs px-3 py-1 rounded-full border border-yellow-600">
                             🔥 Pendaftaran Dibuka
                         </span>
                     </div>
@@ -518,10 +526,10 @@
                 </div>
 
                 <!-- Tahap 2 -->
-                <div class="bg-white rounded-2xl p-5 border-2 border-amber-300 shadow-sm hover-scale">
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-goldenApricot text-white font-black text-sm px-3 py-1 rounded-lg">TAHAP 02</span>
-                        <span class="bg-amber-100 text-amber-900 font-extrabold text-xs px-3 py-1 rounded-full">
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-amber-300 shadow-sm hover-scale">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="bg-goldenApricot text-white font-black text-xs sm:text-sm px-3 py-1 rounded-lg">TAHAP 02</span>
+                        <span class="bg-amber-100 text-amber-900 font-extrabold text-[11px] sm:text-xs px-3 py-1 rounded-full">
                             Seleksi Berkas
                         </span>
                     </div>
@@ -533,10 +541,10 @@
                 </div>
 
                 <!-- Tahap 3 -->
-                <div class="bg-white rounded-2xl p-5 border-2 border-pink-300 shadow-sm hover-scale">
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-cottonCandy text-blackCherry font-black text-sm px-3 py-1 rounded-lg">TAHAP 03</span>
-                        <span class="bg-pink-100 text-blackCherry font-extrabold text-xs px-3 py-1 rounded-full">
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-pink-300 shadow-sm hover-scale">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="bg-cottonCandy text-blackCherry font-black text-xs sm:text-sm px-3 py-1 rounded-lg">TAHAP 03</span>
+                        <span class="bg-pink-100 text-blackCherry font-extrabold text-[11px] sm:text-xs px-3 py-1 rounded-full">
                             Sesi Wawancara
                         </span>
                     </div>
@@ -548,10 +556,10 @@
                 </div>
 
                 <!-- Tahap 4 -->
-                <div class="bg-white rounded-2xl p-5 border-2 border-gray-300 shadow-sm hover-scale">
-                    <div class="flex items-center justify-between gap-2 mb-3">
-                        <span class="bg-blackCherry text-white font-black text-sm px-3 py-1 rounded-lg">TAHAP 04</span>
-                        <span class="bg-pearlBeige text-blackCherry font-extrabold text-xs px-3 py-1 rounded-full">
+                <div class="bg-white rounded-2xl p-4 sm:p-5 border-2 border-gray-300 shadow-sm hover-scale">
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+                        <span class="bg-blackCherry text-white font-black text-xs sm:text-sm px-3 py-1 rounded-lg">TAHAP 04</span>
+                        <span class="bg-pearlBeige text-blackCherry font-extrabold text-[11px] sm:text-xs px-3 py-1 rounded-full">
                             Pengumuman Final
                         </span>
                     </div>
@@ -588,90 +596,90 @@
         <!-- =========================================================
         6. PENGENALAN BPH KABINET NAWARUNA
         ========================================================== -->
-        <section id="bph" class="space-y-6">
+        <section id="bph" class="space-y-5 sm:space-y-6">
             <div class="text-center space-y-2">
-                <h2 class="text-xl md:text-3xl font-black text-center text-blackCherry uppercase bg-white py-3 px-5 rounded-2xl shadow-sm border-2 border-pearlBeige inline-block">
+                <h2 class="text-lg sm:text-xl md:text-3xl font-black text-center text-blackCherry uppercase bg-white py-2.5 sm:py-3 px-4 sm:px-5 rounded-2xl shadow-sm border-2 border-pearlBeige inline-block">
                     Kenalan Yuk Sama BPH Nawaruna! 👋
                 </h2>
-                <p class="text-sm sm:text-base font-bold text-gray-700 max-w-xl mx-auto">
+                <p class="text-xs sm:text-base font-bold text-gray-700 max-w-xl mx-auto">
                     Kami siap jadi partner diskusi, teman bertumbuh, dan keluarga barumu di IPB Mengajar 2026/2027!
                 </p>
             </div>
 
-            <!-- Grid 4 BPH Bersih & Rapi -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            <!-- Grid BPH: 2 Kolom Proporsional di HP & Tablet, 4 Kolom di Laptop/Desktop -->
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
                 <!-- 1. Direktur -->
-                <div class="bg-white rounded-2xl p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
-                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-3">
+                <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
+                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-2.5 sm:mb-3">
                         <img src="https://i.ibb.co.com/N2Pm3G5s/Desain-Tanpa-Judul-10.png"
                              alt="Akbar Rizki Rabbani - Direktur IPB Mengajar"
                              onerror="this.onerror=null;this.src='https://placehold.co/300x400/FFFFFF/AD2831?text=Akbar+Rizki';"
                              class="w-full h-full object-cover object-top">
                     </div>
-                    <span class="bg-brownRed text-white font-black text-xs px-3 py-1 rounded-full mb-2">
+                    <span class="bg-brownRed text-white font-black text-[10px] sm:text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full mb-1.5 sm:mb-2">
                         Direktur
                     </span>
-                    <h3 class="text-base md:text-lg font-black text-gray-900 leading-snug">
+                    <h3 class="text-sm sm:text-base md:text-lg font-black text-gray-900 leading-snug">
                         Akbar Rizki Rabbani
                     </h3>
-                    <p class="text-xs font-semibold text-gray-600 mt-1.5 leading-relaxed">
+                    <p class="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1 sm:mt-1.5 leading-relaxed">
                         “Yuk melangkah bareng, bikin dampak baik dari hal-hal sederhana!”
                     </p>
                 </div>
 
                 <!-- 2. Wakil Direktur -->
-                <div class="bg-white rounded-2xl p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
-                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-3">
+                <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
+                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-2.5 sm:mb-3">
                         <img src="https://i.ibb.co.com/kV3mdSzy/Desain-Tanpa-Judul-12.png"
                              alt="Jessica Cheryl Lim - Wakil Direktur IPB Mengajar"
                              onerror="this.onerror=null;this.src='https://placehold.co/300x400/FFFFFF/AD2831?text=Jessica+Cheryl';"
                              class="w-full h-full object-cover object-top">
                     </div>
-                    <span class="bg-sunnyYellow text-yellow-950 font-black text-xs px-3 py-1 rounded-full border border-yellow-500 mb-2">
+                    <span class="bg-sunnyYellow text-yellow-950 font-black text-[10px] sm:text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-yellow-500 mb-1.5 sm:mb-2">
                         Wakil Direktur
                     </span>
-                    <h3 class="text-base md:text-lg font-black text-gray-900 leading-snug">
+                    <h3 class="text-sm sm:text-base md:text-lg font-black text-gray-900 leading-snug">
                         Jessica Cheryl Lim
                     </h3>
-                    <p class="text-xs font-semibold text-gray-600 mt-1.5 leading-relaxed">
+                    <p class="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1 sm:mt-1.5 leading-relaxed">
                         “Di Nawaruna, setiap ide dan ceritamu selalu punya ruang untuk tumbuh!”
                     </p>
                 </div>
 
                 <!-- 3. Sekretaris Umum 1 -->
-                <div class="bg-white rounded-2xl p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
-                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-3">
+                <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
+                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-2.5 sm:mb-3">
                         <img src="https://i.ibb.co.com/XxhcmZzM/Desain-Tanpa-Judul-11.png"
                              alt="Alifia Cintya Aditi - Sekretaris Umum 1 IPB Mengajar"
                              onerror="this.onerror=null;this.src='https://placehold.co/300x400/FFFFFF/AD2831?text=Alifia+Cintya';"
                              class="w-full h-full object-cover object-top">
                     </div>
-                    <span class="bg-goldenApricot text-white font-black text-xs px-3 py-1 rounded-full mb-2">
+                    <span class="bg-goldenApricot text-white font-black text-[10px] sm:text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full mb-1.5 sm:mb-2">
                         Sekretaris Umum 1
                     </span>
-                    <h3 class="text-base md:text-lg font-black text-gray-900 leading-snug">
+                    <h3 class="text-sm sm:text-base md:text-lg font-black text-gray-900 leading-snug">
                         Alifia Cintya Aditi
                     </h3>
-                    <p class="text-xs font-semibold text-gray-600 mt-1.5 leading-relaxed">
+                    <p class="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1 sm:mt-1.5 leading-relaxed">
                         “Mari rapikan langkah dan catat setiap cerita pengabdian kita bersama!”
                     </p>
                 </div>
 
                 <!-- 4. Bendahara Umum 1 -->
-                <div class="bg-white rounded-2xl p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
-                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-3">
+                <div class="bg-white rounded-2xl p-3 sm:p-4 border-2 border-pearlBeige shadow-md hover-scale flex flex-col items-center text-center">
+                    <div class="w-full aspect-[3/4] rounded-xl overflow-hidden border-2 border-gray-100 bg-gray-50 mb-2.5 sm:mb-3">
                         <img src="https://i.ibb.co.com/PsmWRGgR/Desain-Tanpa-Judul-9.png"
                              alt="Hikmatutasya Nabila - Bendahara Umum 1 IPB Mengajar"
                              onerror="this.onerror=null;this.src='https://placehold.co/300x400/FFFFFF/AD2831?text=Hikmatutasya';"
                              class="w-full h-full object-cover object-top">
                     </div>
-                    <span class="bg-blackCherry text-white font-black text-xs px-3 py-1 rounded-full mb-2">
+                    <span class="bg-blackCherry text-white font-black text-[10px] sm:text-xs px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full mb-1.5 sm:mb-2">
                         Bendahara Umum 1
                     </span>
-                    <h3 class="text-base md:text-lg font-black text-gray-900 leading-snug">
+                    <h3 class="text-sm sm:text-base md:text-lg font-black text-gray-900 leading-snug">
                         Hikmatutasya Nabila
                     </h3>
-                    <p class="text-xs font-semibold text-gray-600 mt-1.5 leading-relaxed">
+                    <p class="text-[11px] sm:text-xs font-semibold text-gray-600 mt-1 sm:mt-1.5 leading-relaxed">
                         “Kelola amanah dengan transparan, wujudkan mimpi adik-adik dengan ceria!”
                     </p>
                 </div>
@@ -679,43 +687,43 @@
         </section>
 
         <!-- =========================================================
-        7. BERKAS & LINK PENDAFTARAN (TEGAS & PRAKTIS)
+        7. BERKAS & LINK PENDAFTARAN (TEGAS & PRAKTIS DI HP & LAPTOP)
         ========================================================== -->
-        <section id="berkas-daftar" class="glass-card rounded-3xl p-6 md:p-10 border-t-8 border-t-brownRed space-y-6">
+        <section id="berkas-daftar" class="glass-card rounded-3xl p-5 sm:p-6 md:p-10 border-t-8 border-t-brownRed space-y-6">
             <div class="text-center space-y-2">
-                <h2 class="text-2xl md:text-4xl font-black text-gray-900 uppercase">Berkas & Link Pendaftaran 📂</h2>
-                <p class="text-sm sm:text-base font-bold text-gray-700 max-w-xl mx-auto">
-                    Ikuti 3 langkah praktis di bawah ini. Klik tombol untuk membuka tautan atau tekan tombol <strong>Salin</strong> di sebelahnya!
+                <h2 class="text-xl sm:text-2xl md:text-4xl font-black text-gray-900 uppercase">Berkas & Link Pendaftaran 📂</h2>
+                <p class="text-xs sm:text-base font-bold text-gray-700 max-w-xl mx-auto">
+                    Ikuti 3 langkah praktis di bawah ini. Ketuk tombol untuk membuka tautan atau tekan tombol <strong>Salin</strong> di sebelahnya!
                 </p>
                 <div class="max-w-xl mx-auto pt-1">
-                    <div class="bg-red-100 text-red-800 p-3.5 rounded-2xl font-black text-xs sm:text-sm border-2 border-red-300 shadow-sm">
+                    <div class="bg-red-100 text-red-800 p-3 sm:p-3.5 rounded-2xl font-black text-xs sm:text-sm border-2 border-red-300 shadow-sm">
                         <i class="fa-solid fa-triangle-exclamation mr-1.5"></i>
                         Batas akhir submit berkas di Google Form adalah <span class="underline">26 November 2026</span>!
                     </div>
                 </div>
             </div>
 
-            <div class="max-w-2xl mx-auto space-y-4">
+            <div class="max-w-2xl mx-auto space-y-3.5 sm:space-y-4">
                 <!-- Langkah 1: Folder Template CV -->
                 <div class="flex items-stretch gap-2">
                     <a href="https://ipb.link/cvpimpinannawaruna" target="_blank" rel="noopener noreferrer"
-                       class="flex-1 bg-sunnyYellow hover:bg-yellow-300 text-yellow-950 rounded-2xl p-4 sm:p-5 flex items-center justify-between border-4 border-yellow-600 shadow-md transition transform hover:-translate-y-1">
-                        <div class="flex items-center gap-3.5 text-left">
-                            <div class="w-11 h-11 rounded-xl bg-white text-brownRed flex items-center justify-center text-xl shrink-0 shadow-sm">
+                       class="flex-1 min-w-0 bg-sunnyYellow hover:bg-yellow-300 active:scale-99 text-yellow-950 rounded-2xl p-3.5 sm:p-5 flex items-center justify-between border-4 border-yellow-600 shadow-md transition transform sm:hover:-translate-y-1">
+                        <div class="flex items-center gap-3 sm:gap-3.5 text-left min-w-0">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white text-brownRed flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
                                 <i class="fa-solid fa-folder-open"></i>
                             </div>
-                            <div>
-                                <span class="text-xs font-black uppercase tracking-wider text-brownRed block">Langkah 1 • Unduh Template</span>
-                                <span class="text-lg sm:text-xl font-black text-gray-900 block leading-tight">Folder Template CV</span>
+                            <div class="min-w-0">
+                                <span class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-brownRed block">Langkah 1 • Unduh Template</span>
+                                <span class="text-base sm:text-lg md:text-xl font-black text-gray-900 block leading-tight">Folder Template CV</span>
                                 <span class="text-xs font-bold text-yellow-900 hidden sm:block">ipb.link/cvpimpinannawaruna</span>
                             </div>
                         </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-lg shrink-0 ml-2"></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-base sm:text-lg shrink-0 ml-2"></i>
                     </a>
                     <button type="button" onclick="copyLink('https://ipb.link/cvpimpinannawaruna', 'Link Template CV')"
                             title="Salin Link Template CV"
-                            class="bg-white hover:bg-gray-100 text-gray-800 px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-xs font-black shrink-0 cursor-pointer transition">
-                        <i class="fa-regular fa-copy text-base mb-1 text-brownRed"></i>
+                            class="bg-white hover:bg-gray-100 active:scale-95 text-gray-800 px-3 sm:px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-[11px] sm:text-xs font-black shrink-0 cursor-pointer transition">
+                        <i class="fa-regular fa-copy text-sm sm:text-base mb-1 text-brownRed"></i>
                         <span>Salin</span>
                     </button>
                 </div>
@@ -723,40 +731,40 @@
                 <!-- Langkah 2: Folder Template Surat Komitmen -->
                 <div class="flex items-stretch gap-2">
                     <a href="https://ipb.link/suratkomitmenpimpinannawaruna" target="_blank" rel="noopener noreferrer"
-                       class="flex-1 bg-pearlBeige hover:bg-amber-200 text-blackCherry rounded-2xl p-4 sm:p-5 flex items-center justify-between border-4 border-goldenApricot shadow-md transition transform hover:-translate-y-1">
-                        <div class="flex items-center gap-3.5 text-left">
-                            <div class="w-11 h-11 rounded-xl bg-white text-brownRed flex items-center justify-center text-xl shrink-0 shadow-sm">
+                       class="flex-1 min-w-0 bg-pearlBeige hover:bg-amber-200 active:scale-99 text-blackCherry rounded-2xl p-3.5 sm:p-5 flex items-center justify-between border-4 border-goldenApricot shadow-md transition transform sm:hover:-translate-y-1">
+                        <div class="flex items-center gap-3 sm:gap-3.5 text-left min-w-0">
+                            <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-white text-brownRed flex items-center justify-center text-lg sm:text-xl shrink-0 shadow-sm">
                                 <i class="fa-solid fa-file-contract"></i>
                             </div>
-                            <div>
-                                <span class="text-xs font-black uppercase tracking-wider text-brownRed block">Langkah 2 • Unduh Template</span>
-                                <span class="text-lg sm:text-xl font-black text-gray-900 block leading-tight">Folder Template Surat Komitmen</span>
+                            <div class="min-w-0">
+                                <span class="text-[11px] sm:text-xs font-black uppercase tracking-wider text-brownRed block">Langkah 2 • Unduh Template</span>
+                                <span class="text-base sm:text-lg md:text-xl font-black text-gray-900 block leading-tight">Template Surat Komitmen</span>
                                 <span class="text-xs font-bold text-gray-700 hidden sm:block">ipb.link/suratkomitmenpimpinannawaruna</span>
                             </div>
                         </div>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-lg shrink-0 ml-2"></i>
+                        <i class="fa-solid fa-arrow-up-right-from-square text-base sm:text-lg shrink-0 ml-2"></i>
                     </a>
                     <button type="button" onclick="copyLink('https://ipb.link/suratkomitmenpimpinannawaruna', 'Link Surat Komitmen')"
                             title="Salin Link Surat Komitmen"
-                            class="bg-white hover:bg-gray-100 text-gray-800 px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-xs font-black shrink-0 cursor-pointer transition">
-                        <i class="fa-regular fa-copy text-base mb-1 text-brownRed"></i>
+                            class="bg-white hover:bg-gray-100 active:scale-95 text-gray-800 px-3 sm:px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-[11px] sm:text-xs font-black shrink-0 cursor-pointer transition">
+                        <i class="fa-regular fa-copy text-sm sm:text-base mb-1 text-brownRed"></i>
                         <span>Salin</span>
                     </button>
                 </div>
 
                 <!-- Langkah 3: Google Form Pendaftaran Utama -->
-                <div class="flex items-stretch gap-2 pt-2">
+                <div class="flex items-stretch gap-2 pt-1 sm:pt-2">
                     <a href="https://docs.google.com/forms/d/1vO7p8AOfNINUkxnbkgvDf9rQyWCpSkZEV46uaiLqZOI/edit" target="_blank" rel="noopener noreferrer"
-                       class="flex-1 bg-brownRed hover:bg-blackCherry text-white rounded-2xl p-5 sm:p-6 flex items-center justify-between border-4 border-blackCherry shadow-lg transition transform hover:-translate-y-1">
-                        <div class="flex items-center gap-4 text-left">
-                            <div class="w-12 h-12 rounded-xl bg-sunnyYellow text-yellow-950 flex items-center justify-center text-2xl shrink-0 shadow-sm">
+                       class="flex-1 min-w-0 bg-brownRed hover:bg-blackCherry active:scale-99 text-white rounded-2xl p-4 sm:p-6 flex items-center justify-between border-4 border-blackCherry shadow-lg transition transform sm:hover:-translate-y-1">
+                        <div class="flex items-center gap-3 sm:gap-4 text-left min-w-0">
+                            <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-sunnyYellow text-yellow-950 flex items-center justify-center text-xl sm:text-2xl shrink-0 shadow-sm">
                                 <i class="fa-solid fa-paper-plane"></i>
                             </div>
-                            <div>
-                                <span class="inline-block bg-sunnyYellow text-yellow-950 font-black text-[11px] px-2.5 py-0.5 rounded uppercase tracking-wider mb-1">
-                                    Langkah 3 • Formulir Pendaftaran
+                            <div class="min-w-0">
+                                <span class="inline-block bg-sunnyYellow text-yellow-950 font-black text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-0.5 rounded uppercase tracking-wider mb-1">
+                                    Langkah 3 • Formulir
                                 </span>
-                                <span class="text-xl sm:text-2xl font-black text-white block leading-tight">
+                                <span class="text-lg sm:text-xl md:text-2xl font-black text-white block leading-tight">
                                     ISI GOOGLE FORM SEKARANG
                                 </span>
                                 <span class="text-xs sm:text-sm font-semibold text-pearlBeige block mt-0.5">
@@ -764,12 +772,12 @@
                                 </span>
                             </div>
                         </div>
-                        <i class="fa-solid fa-chevron-right text-xl shrink-0 ml-2"></i>
+                        <i class="fa-solid fa-chevron-right text-lg sm:text-xl shrink-0 ml-2"></i>
                     </a>
                     <button type="button" onclick="copyLink('https://docs.google.com/forms/d/1vO7p8AOfNINUkxnbkgvDf9rQyWCpSkZEV46uaiLqZOI/edit', 'Link Google Form')"
                             title="Salin Link Google Form"
-                            class="bg-white hover:bg-gray-100 text-gray-800 px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-xs font-black shrink-0 cursor-pointer transition">
-                        <i class="fa-regular fa-copy text-base mb-1 text-brownRed"></i>
+                            class="bg-white hover:bg-gray-100 active:scale-95 text-gray-800 px-3 sm:px-4 rounded-2xl border-2 border-gray-300 shadow-sm flex flex-col items-center justify-center text-[11px] sm:text-xs font-black shrink-0 cursor-pointer transition">
+                        <i class="fa-regular fa-copy text-sm sm:text-base mb-1 text-brownRed"></i>
                         <span>Salin</span>
                     </button>
                 </div>
@@ -779,36 +787,36 @@
         <!-- =========================================================
         8. POJOK TANYA JAWAB (GAYA CHAT BUBBLE BERSIH)
         ========================================================== -->
-        <section id="faq" class="bg-white/80 rounded-3xl p-5 md:p-8 border-4 border-dashed border-goldenApricot relative mt-10">
-            <div class="absolute -top-5 left-1/2 transform -translate-x-1/2 bg-white px-5 py-2 rounded-full border-4 border-goldenApricot shadow-sm font-black text-blackCherry flex items-center justify-center gap-2 w-max max-w-[95%] text-center text-sm sm:text-base">
+        <section id="faq" class="bg-white/80 rounded-3xl p-4 sm:p-6 md:p-8 border-4 border-dashed border-goldenApricot relative mt-10">
+            <div class="absolute -top-4 sm:-top-5 left-1/2 transform -translate-x-1/2 bg-white px-4 sm:px-5 py-1.5 sm:py-2 rounded-full border-4 border-goldenApricot shadow-sm font-black text-blackCherry flex items-center justify-center gap-1.5 sm:gap-2 whitespace-nowrap text-xs sm:text-sm md:text-base">
                 <i class="fa-solid fa-comments text-brownRed"></i> Pojok Obrolan Santai ✏️💭
             </div>
 
             <div class="flex flex-col gap-6 mt-5">
                 <!-- Pertanyaan Mahasiswa -->
-                <div class="flex items-end gap-3 w-full md:w-5/6">
-                    <div class="text-3xl md:text-5xl mb-2">🥺</div>
+                <div class="flex items-end gap-2.5 sm:gap-3 w-full md:w-5/6">
+                    <div class="text-3xl md:text-5xl mb-1.5 sm:mb-2 shrink-0">🥺</div>
                     <div class="bg-white p-4 md:p-5 rounded-3xl rounded-bl-none border-2 border-gray-200 shadow-sm w-full relative">
-                        <span class="absolute -top-3 right-4 bg-yellow-100 text-yellow-900 text-[11px] font-black px-2.5 py-0.5 rounded-full border border-yellow-300">
+                        <span class="absolute -top-3 right-3 sm:right-4 bg-yellow-100 text-yellow-900 text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full border border-yellow-300">
                             ✏️ Calon Pimpinan
                         </span>
-                        <p class="text-gray-800 font-bold text-sm md:text-base leading-relaxed">
+                        <p class="text-gray-800 font-bold text-xs sm:text-sm md:text-base leading-relaxed">
                             “Kak, aku pengin banget daftar jadi <span class="text-brownRed bg-red-50 px-1.5 py-0.5 rounded">Manajer Divisi</span> atau <span class="text-brownRed bg-red-50 px-1.5 py-0.5 rounded">Sekben</span>, tapi aku masih agak ragu karena belum banyak pengalaman memimpin sebelumnya. Kira-kira boleh ikut daftar gak ya? 💭”
                         </p>
                     </div>
                 </div>
 
                 <!-- Jawaban BPH Nawaruna -->
-                <div class="flex items-end gap-3 w-full md:w-11/12 self-end flex-row-reverse">
-                    <div class="text-3xl md:text-5xl mb-2">👩‍🏫</div>
+                <div class="flex items-end gap-2.5 sm:gap-3 w-full md:w-11/12 self-end flex-row-reverse">
+                    <div class="text-3xl md:text-5xl mb-1.5 sm:mb-2 shrink-0">👩‍🏫</div>
                     <div class="bg-amber-50 p-4 md:p-5 rounded-3xl rounded-br-none border-2 border-goldenApricot/60 shadow-sm w-full space-y-2 relative">
-                        <span class="absolute -top-3 left-4 bg-pink-100 text-blackCherry text-[11px] font-black px-2.5 py-0.5 rounded-full border border-pink-300">
+                        <span class="absolute -top-3 left-3 sm:left-4 bg-pink-100 text-blackCherry text-[10px] sm:text-[11px] font-black px-2.5 py-0.5 rounded-full border border-pink-300">
                             📚 BPH Kabinet Nawaruna
                         </span>
-                        <p class="text-brownRed font-black text-sm md:text-base leading-relaxed">
+                        <p class="text-brownRed font-black text-xs sm:text-sm md:text-base leading-relaxed">
                             Boleh banget dong! Malah kami senang banget kalau kamu ikut daftar! 🤗✨
                         </p>
-                        <p class="text-gray-800 font-semibold text-sm md:text-base leading-relaxed">
+                        <p class="text-gray-800 font-semibold text-xs sm:text-sm md:text-base leading-relaxed">
                             Di <strong class="text-brownRed">IPB Mengajar</strong>, semua orang berhak belajar dari nol. Kami gak menuntut kamu harus langsung jago segalanya kok—yang paling penting kamu <strong>punya kemauan belajar, hati yang tulus buat berbagi, dan siap jalan bareng tim</strong>. BPH dan keluarga Nawaruna bakal selalu nemenin prosesmu! 💛
                         </p>
                     </div>
@@ -821,15 +829,15 @@
     <!-- =========================================================
     FOOTER RAPI & SEDERHANA
     ========================================================== -->
-    <footer class="mt-16 text-center text-blackCherry font-bold relative z-10 px-4">
+    <footer class="mt-12 sm:mt-16 text-center text-blackCherry font-bold relative z-10 px-4">
         <p class="text-sm md:text-base">UKM IPB Mengajar 2026/2027 • Kabinet Nawaruna</p>
         <p class="text-xs md:text-sm mt-1 text-gray-700">Dibuat dengan 💛 & semangat berbagi. Sampai ketemu di barisan pimpinan Nawaruna! 🎒</p>
     </footer>
 
     <!-- Notifikasi Toast Salin Link -->
-    <div id="toast-notification" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-50 pointer-events-none">
-        <div class="bg-blackCherry text-white px-5 py-3 rounded-full shadow-xl border-2 border-sunnyYellow flex items-center gap-2.5 font-extrabold text-sm">
-            <i class="fa-solid fa-circle-check text-sunnyYellow text-lg"></i>
+    <div id="toast-notification" class="fixed bottom-5 sm:bottom-6 left-1/2 transform -translate-x-1/2 translate-y-24 opacity-0 transition-all duration-300 z-50 pointer-events-none max-w-[92vw]">
+        <div class="bg-blackCherry text-white px-4 sm:px-5 py-2.5 sm:py-3 rounded-full shadow-xl border-2 border-sunnyYellow flex items-center gap-2 sm:gap-2.5 font-extrabold text-xs sm:text-sm whitespace-nowrap">
+            <i class="fa-solid fa-circle-check text-sunnyYellow text-base sm:text-lg"></i>
             <span id="toast-message">Link berhasil disalin!</span>
         </div>
     </div>
@@ -883,14 +891,14 @@
                     card.style.display = 'flex';
                 } else {
                     card.style.display = 'none';
-                }
-            });
-        }
-
-        // Fungsi Salin Link Kompatibel iFrame
+        // Fungsi Salin Link Kompatibel iFrame & Anti-Keyboard Pop-up di HP
         function copyLink(url, label) {
             const tempInput = document.createElement('input');
             tempInput.value = url;
+            tempInput.setAttribute('readonly', '');
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            tempInput.style.pointerEvents = 'none';
             document.body.appendChild(tempInput);
             tempInput.select();
             tempInput.setSelectionRange(0, 99999);
@@ -899,7 +907,7 @@
                 document.execCommand('copy');
                 showToast(`${label} berhasil disalin! 📋`);
             } catch (err) {
-                showToast(`Silakan klik tombol buka untuk mengakses ${label}.`);
+                showToast(`Silakan ketuk tombol buka untuk mengakses ${label}.`);
             }
 
             document.body.removeChild(tempInput);
